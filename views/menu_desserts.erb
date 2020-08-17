@@ -1,0 +1,130 @@
+<%= erb :header %>
+<link href="/style/menucss.css" rel="stylesheet"/>
+  
+    <FORM class="form_override" METHOD="LINK" ACTION="/menu">
+        <INPUT class="button" TYPE="submit" VALUE="Pizzas">
+    </FORM>
+        
+     <FORM class="form_override" METHOD="LINK" ACTION="/menu_sides">
+        <INPUT class="button" TYPE="submit" VALUE="Sides">
+    </FORM>
+            
+    <FORM class="form_override" METHOD="LINK" ACTION="/menu_desserts">
+        <INPUT class="disabled" TYPE="submit" VALUE="Desserts">
+    </FORM>
+    
+     <FORM class="form_override" METHOD="LINK" ACTION="/menu_drinks">
+        <INPUT class="button" TYPE="submit" VALUE="Drinks">
+    </FORM> 
+         
+    
+
+<% if session[:location] == "sheffield" %>
+    <h1 class="menu_title"> Sheffield </h1>
+    <% unless @dessert_table.nil? %>
+            <% if @dessert_table.length == 0 %>
+                <p>No search results found!</p>
+            <% else %>
+                <br />
+                <table class="dessert_table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                    <% @dessert_table.each do |dessert_item| %>
+                        <tr>
+                                <td><%=h dessert_item[0] %></td>
+                                <td><%=h dessert_item[1] %></td>
+                                <td><%=h dessert_item[2] %></td>
+                        </tr>
+                    <% end %>
+
+                </table>
+            <% end %>
+    <% end %>
+<% end %>
+         
+<% if session[:location] == "london" %>
+    <h1 class="menu_title"> London </h1>
+    <% unless @dessert_london_table.nil? %>
+            <% if @dessert_london_table.length == 0 %>
+                <p>No search results found!</p>
+            <% else %>
+                <br />
+                <table class="dessert_table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                    <% @dessert_london_table.each do |dessert_item| %>
+                        <tr>
+                                <td><%=h dessert_item[0] %></td>
+                                <td><%=h dessert_item[1] %></td>
+                                <td><%=h dessert_item[2] %></td>
+                        </tr>
+                    <% end %>
+
+                </table>
+            <% end %>
+    <% end %>
+<% end %>
+         
+<% if session[:admin] == true %>
+    <!-- Menu item creation form -->
+    <table class="menu_table1">
+        <tr>
+            <form method="post" action="/newmenu_dessert" class="no-border">
+                <% (0..(@dessert_table[0].length - 1)).each do |i| %>
+                    <td><input class="admintd" type="text" name="<%="field#{i}"%>"></td>
+                <% end %>
+                <td><button type="submit">Add Item</button></td>
+            </form>
+        </tr>
+    </table>     
+    
+    <!-- Menu item deletion form -->
+    <form method="post" action="/delmenu_dessert" class="no-border">
+        <p>
+            Delete menu item by name: 
+            <select name="admin_menu_item">
+                <% if session[:location] == "sheffield" %>
+                    <% @dessert_table.each do |menu_item| %>
+                        <option><%=h menu_item[0] %></option>
+                    <% end %>
+                <% elsif session[:location] == "london" %>
+                    <% @dessert_london_table.each do |menu_item| %>
+                        <option><%=h menu_item[0] %></option>
+                    <% end %>
+                <% end %>
+            </select>
+            <button type="submit">
+                Delete
+            </button>
+        </p>
+    </form>
+<% end %>
+         
+<form class="no-border" method="post" action="/menu_desserts">
+                <p>
+                    Set location of menu:
+                    <select value="<%= session[:location] %>" name="location">
+                        <% if session[:location] == "sheffield" %>
+                            <option selected="selected">Sheffield</option>
+                        <% else %>
+                            <option>Sheffield</option>
+                        <% end %>
+                        <% if session[:location] == "london" %>
+                            <option selected="selected">London</option>
+                        <% else %>
+                            <option>London</option>
+                        <% end %>
+                    </select>
+                    <button type="submit">
+                        Apply
+                    </button>
+                </p>
+</form>         
+
+<%= erb :footer %>

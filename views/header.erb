@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>PizzaShed</title>
+    <link href="/style/reset.css" rel="stylesheet"/>
+    <link href="/style/stylesheet.css?version=13" rel="stylesheet"/>
+    
+
+
+    <div id="body" />
+        <div id="headerid">
+            <nav>
+                <div id="linksleft">
+                    <ul>
+                        <li><a href="/">Homepage</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                        <% if session[:user] != true %>
+                            <li><a href="/sign_up">Register</a></li>
+                            <li><a href="/sign_in">Login</a></li>
+                        <% end %>
+                        <% if session[:admin] == true %>
+                            <li><a href="/admin">Admin</a></li>
+                        <% end %>
+                        <% if session[:order_handler] == true %>
+                            <li><a href="/twitter_feed">Tweets</a></li>
+                        <% end %>
+                         <% if session[:order_handler] == true %>
+                            <li><a href="/order_handler">Orders</a></li>
+                        <% end %>
+                    </ul>
+                 </div>
+                
+                 <div id="linksright">
+                    <ul>
+                        <% if session[:user] == true %>
+                            <li><a href="/sign_out">Sign Out</a></li>
+                        <% end %>
+                        <% if session[:user] == true %>
+                            <li ><a href="/profile"> <%= session[:username] %> </a></li>
+                        <% end %>
+                        
+                     </ul>
+               </div>
+            </nav>
+
+    </div>
+    
+       
+</head>

@@ -1,0 +1,43 @@
+<%= erb :header %>
+<link href="/style/twitter_feed.css" rel="stylesheet"/>
+<body>
+    <h1 class="title"> Customer Twitter Search </h1>
+
+    <% unless @table.nil? %>
+        <% if @table.length == 0 %>
+            <p>No search results found!</p>
+        <% else %>
+            <br/>
+    
+            <table class="tweet_table">
+                <tr>
+                    <th>User</th>
+                    <th>Text</th>
+                    <th>Time</th>
+                    <th>Summary of Order</th>
+                    <th>Price</th>
+                    <th>Click to Create Order</th>
+                </tr>
+                <% @table.each do |tweet| %>
+                    <% if tweet[4] == 0 %>
+                        <form style="display:none" id="tweetform" method="post" action="twitter_feed">
+                            <tr>
+                                <input type="hidden" value="<%= tweet[0] %>" name="tweet_id"/>
+                                <input type="hidden" value="<%= tweet[1] %>" name="user"/>
+                                <td><%= tweet[1] %></td>
+                                <td><%=h tweet[2] %></td>
+                                <input type="hidden" value="<%= tweet[2] %>" name="tweet_text"/>
+                                <td><%=h tweet[3] %></td>
+                                <td><input type="text" name="order_summary" value=""/></td>
+                                <td><input type="text" name="order_price" value=""/></td>
+                                <td><input type="submit" value="Create"></td>
+                            </tr>
+                        </form>
+                    <% end %>
+                <% end %>
+            </table>
+        <% end %>
+    <% end %>
+</body>
+
+<%= erb :footer %>

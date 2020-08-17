@@ -1,0 +1,63 @@
+.menu_table {
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-top: 1.5em;
+    display:block;
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.menu_table {
+    font-weight: bold;
+    color:black;
+}
+
+.menu_table td {
+    padding: 0.7em;
+    font-weight: bold;
+    color:black;
+}
+.menu_titles {
+    font-weight: bolder;
+    color:black;
+    display:inline;
+}
+
+.form_override {
+    display: inline-block;
+    padding-top:0em;
+    position:relative;
+    left:35%;
+    border-spacing:0;
+    text-align: center;
+    border: none ;
+    font-weight:bold;
+       
+}
+.no-border {
+    border-spacing: 0;
+    text-align: center;
+    border: none ;
+    padding-top:0;
+}
+.enabled {
+    background-color: rgba(0,0,0,0); 
+    border: 1px solid white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    height:4em;
+    font-size: 16px;
+    cursor: pointer;
+}
+.form_override {
+    display: inline-block;
+    padding-top:0em;
+    position:relative;
+    left:45%;
+    border-spacing:0;
+    text-align: center;
+    border: none ;
+    font-weight:bold;
+       
+} 

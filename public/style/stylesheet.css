@@ -1,0 +1,95 @@
+h1, h2, p, a, li, label {
+    font-family: ‘Lucida Console’, Monaco, monospace;
+    color:white;
+    text-shadow:
+    -1px -1px 0 #5B5B5B,
+    1px -1px 0 #5B5B5B,
+    -1px 1px 0 #5B5B5B,
+    1px 1px 0 #5B5B5B;
+}
+
+.title {
+    color: white;
+    font-size: 3em;
+    text-align: center;
+}
+#headerid {
+    width:80%;
+    position:relative;
+    left:10%;
+    padding-bottom:2em;
+}
+nav {
+    padding: 2em 0 1em 0;
+}
+
+
+#linksleft ul li {
+    display:inline-block;
+    float: left;
+    padding-left:3em;
+}
+#linksright ul li {
+    display:inline-block;
+    float: right;
+    padding-left:3em;
+}
+
+table, form {
+    overflow:auto;
+}
+
+
+
+body {
+    background-color: rgb(222, 221, 216);
+    background-color: rgb(222, 221, 216);
+    background-image: url(../images/half-pizza.png);
+    background-repeat: no-repeat;
+    margin: auto;
+    position: static;
+}
+
+a:link {
+	text-decoration: none;
+    color: white;
+}
+a:visited {
+	text-decoration: none;
+    color: white;
+}
+a:hover {
+    z-index:9999;
+	text-decoration: none;
+    color: white;
+    font-weight:bold;
+}
+footer li a img {
+    max-height: 2em;
+    max-height: 2em;
+    padding-right: 2em;
+}
+
+footer li, footer p {
+    display: inline;
+    float: left;
+    position: relative;
+    left: 60%;
+    color:white;
+}
+
+footer {
+    position:absolute;
+    bottom:0;
+    height:2em;
+    background-color:black;
+    width:100%;
+}
+#mainpage {
+    width: 60%;
+    margin: auto;
+}
+/*
+img {
+     style="width:10px; height:80px;"
+} */

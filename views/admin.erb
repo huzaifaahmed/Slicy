@@ -1,0 +1,68 @@
+<%= erb :header %>
+<link href="/style/admin.css?version=1" rel="stylesheet"/>
+<body>
+    <h1 class="title">Administrator View</h1>
+    <h2 class="title">Account Management</h2>
+    <FORM class="form_override" METHOD="LINK" ACTION="/competitions">
+        <INPUT class="enabled" TYPE="submit" VALUE="Competitions" />
+    </FORM>
+    <form method="get" class="no-border">
+        <p>
+            Search by username: <input type="text" name="search" value="<%= params[:search] %>" />
+            <input type="submit" name="submit" value="submit" />
+        </p>
+    </form>
+    <% unless @users.nil? %>
+    <% if @users.length != 0 %>
+    <table class="menu_table">
+        <tr>
+            <td>Id</td>
+            <td>Username</td>
+            <td>First Name</td>
+            <td>Surname</td>
+            <td>Email</td>
+            <td>Address</td>
+            <td>Postcode</td>
+            <td>Phone</td>
+            <td>Role</td>
+            <td>Promotion</td>
+        </tr>
+        <% @users.each do |user| %>
+        <tr>
+            <td><%= user[0] %></td>
+            <td><%= user[3] %></td>
+            <td><%= user[1] %></td>
+            <td><%= user[2] %></td>
+            <td><%= user[6] %></td>
+            <td><%= user[7] %></td>
+            <td><%= user[8] %></td>
+            <td><%= user[9] %></td>
+            <td><%= user[10] %></td>
+            <td><form method="post" action="promo">
+                <input name="user" type="hidden" value="<%= user[3] %>">
+                <input type="submit" value="Send Promo">
+                </form></td>
+            </tr>
+        <% end %>
+
+    </table>
+    <form method="post" action="/moduser" class="no-border">
+        <p>
+            Set selected user role:
+            <select name="user_status">
+                <option>User</option>
+                <option>Order Handler</option>
+                <option>Administrator</option>
+            </select><br>
+            Delete account: 
+            <input type="checkbox" name="delete_user" value="deleted"><br>
+            <button type="submit">
+                Apply
+            </button>
+        </p>
+    </form>
+    <% end %>
+    <% end %>
+</body>
+
+<%= erb :footer %>

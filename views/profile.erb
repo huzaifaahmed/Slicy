@@ -1,0 +1,79 @@
+<%= erb :header %>
+<link href="/style/profile.css?version=1" rel="stylesheet"/>
+<h1 class="title"> Profile </h1>
+
+    <% if @submitted_change && @all_change_ok %>
+        <p style="color: red; position: relative; left: 33%; font-weight: bolder; padding-top: 2em;">Thanks <%=h @firstname_change %>, we have updated your data.</p>
+    <% else %>
+    <% if @submitted_change && !@all_change_ok %>
+        <p style="color: red; position: relative; left: 33%; font-weight: bolder;">There were errors in your form submission, please correct them below.</p>
+    <% end %>
+    
+    <form method="post" action="profile">
+
+        <p >Your first name:
+            <input type="text" name="firstname_change" value="<%= session[:firstname] %>" readonly />
+        </p>
+
+        <p >Surname:
+            <input type="text" name="lastname_change" value="<%= session[:lastname] %>" readonly />
+        </p>
+
+        <p >Username:
+            <input type="text" name="username_change" value="<%= session[:username] %>" readonly />
+        </p>
+        
+        <% if @submitted_change && !@twittername_change_ok %>
+        
+            <p style="color:red">Please enter your twitter handle</p>
+        <% end %>
+
+        <p >Twitter handle:
+            <input type="text" name = "twittername_change" value="<% if (!@submitted_change) %><%=h session[:twittername] %><% elsif (@submitted_change) %><%=h @twittername_change  %><% end %>" />
+        </p>
+                                                         
+        <% if @submitted_change && !@password_change_ok %>
+            <p style="color:red">Please enter your password</p>
+        <% end %>
+
+        <p >Password:
+            <input type="password" name="password_change" value="<% if (!@submitted_change) %><%=h session[:password] %><% elsif (@submitted_change) %><%=h @password_change  %><% end %>"/>
+        </p>
+        
+        <% if @submitted_change && !@email_change_ok %>
+            <p style="color:red">Email: </p>
+        <% end %>
+
+        <p >Email:
+            <input type="email" name="email_change" value="<% if (!@submitted_change) %><%=h session[:email] %><% elsif (@submitted_change) %><%=h @email_change  %><% end %>"/>
+        </p>
+        
+        <% if @submitted_change && !@address_change_ok %>
+            <p style="color:red">Please enter your address</p>
+        <% end %>
+
+        <p >Address:
+            <input type="text" name="address_change" value="<% if (!@submitted_change) %><%=h session[:address] %><% elsif (@submitted_change) %><%=h @address_change  %><% end %>"/>
+        </p>
+        
+        <% if @submitted_change && !@postcode_change_ok %>
+            <p style="color:red">Please enter your Sheffield postcode without spaces</p>
+        <% end %>
+
+        <p >Your postcode:
+            <input type="text" name="postcode_change" value="<% if (!@submitted_change) %><%=h session[:postcode] %><% elsif (@submitted_change) %><%=h @postcode_change  %><% end %>"/>
+        </p>
+        
+        <% if @submitted_change && !@phone_change_ok %>
+            <p style="color:red">Please enter your phone</p>
+        <% end %>
+
+        <p >Phone:
+            <input type="text" name="phone_change" value="<% if (!@submitted_change) %><%=h session[:phone] %><% elsif (@submitted_change) %><%=h @phone_change  %><% end %>"/>
+        </p>
+        
+        <input style="color:black" type="submit" value="submit">
+    </form>
+    <% end %>
+
+<%= erb :footer %>

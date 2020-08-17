@@ -1,0 +1,30 @@
+form p {
+    color: white;
+    padding-bottom:1em;
+    position:relative;
+    text-shadow:
+    -1px -1px 0 #5B5B5B,
+    1px -1px 0 #5B5B5B,
+    -1px 1px 0 #5B5B5B,
+    1px 1px 0 #5B5B5B;
+}
+
+#email_form {
+    position:relative;
+    
+}
+form {
+    display: table;
+    margin:auto;
+    margin-top:3em;
+    text-align: right;
+    text-shadow:
+    font-weight:bold;
+    background-color:rgba(255,255,255,0.4);
+       
+}
+
+form input {
+    display: table-cell;
+}
+

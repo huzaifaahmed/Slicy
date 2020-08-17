@@ -1,0 +1,54 @@
+<%= erb :header %>
+<link href="/style/orders.css" rel="stylesheet"/>
+<body>
+    <h1 class="title"> Orders </h1>
+
+    <% unless @table.nil? %>
+        <% if @table.length == 0 %>
+            <p>No current orders!</p>
+        <% else %>
+            <br/>
+    
+            <table class="order_table">
+                <tr>
+                    <th class = "td">ID</th>
+                    <th class = "td">User</th>
+                    <th class = "td">Summary</th>
+                    <th class = "td">Price</th>
+                    <th class = "td">Price after Promotion</th>
+                    <th class = "td">Complete Order</th>
+                    <th class = "td">Cancel Order</th>
+                </tr>
+                <% @table.each do |order| %>
+                    <% if order[5] == 0 && order[6] == 0 then %>
+                        <form id="orderform" method="post" action="order_handler">
+                            <tr>
+                                
+                                <td class = "td"><input id="idbar" type="text" value="<%= order[1] %>" name="order_id"/></td>
+                                <td class = "td"><input id="idbar" type="text" value="<%= order[2] %>" name="usernameid"/></td>
+                                <td class = "td"><%=h order[3] %></td>
+                                <td class = "td"><%=h order[4] %></td>
+                                <td class = "td">
+                                    <% @users.each do |user| %>
+                                       <% if user[4] == order[2] %>
+                                            <% puts "testing" %>
+                                            <% if user[12] == 1 %>
+                                                <%=h order[4]*0.85 %>
+                                            <% elsif user[12] == 0 %>
+                                                <%=h order[4] %>
+                                            <% end %>
+                                        <% end %>
+                                    <% end %>
+                                       </td>
+                                <td class = "td"><input class="actionbuttons" type="submit" value="completed" name="button" name="button"></td>
+                                <td class = "td"><input class="actionbuttons" type="submit" value="cancelled" name="button" name="button"></td>
+                            </tr>
+                        </form>
+                    <% end %>
+                <% end %>
+            </table>
+        <% end %>
+    <% end %>
+</body>
+
+<%= erb :footer %>

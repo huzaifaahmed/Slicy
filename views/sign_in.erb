@@ -1,0 +1,29 @@
+<%= erb :header %>
+<link href="/style/login.css" rel="stylesheet"/>
+    
+
+<h1 class="title"> Login </h1>
+<form method="post" action="sign_in">
+    
+        <% if @wrong_password %>
+            <p style="color:red">Incorrect password</p>
+        <% end %>
+        <% if @wrong_username %>
+            <p style="color:red">User does not exist</p>
+        <% end %>
+        <% if @empty_fields %>
+            <p style="color:red">One or more fields were empty</p>
+        <% end %>
+        <p>Username:
+            <input id="email_form" type="text" name="username_login" value="" required/>
+        </p>
+        <p>Password:
+            <input id="password_form" type="password" name="password_login" value="" required/>
+        </p>
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <input type="submit" value = "Submit" />
+</form>
+
+<%= erb :footer %>

@@ -1,0 +1,89 @@
+.menu_table, .side_table, .dessert_table, .drink_table {
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-top: 1.5em;
+    display:block;
+    width: 50%;
+    height: 25em;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.menu_table th, .side_table th, .dessert_table th, .drink_table th {
+    font-weight: bold;
+    color:black;
+}
+.menu_title {
+    color: white;
+    font-size: 3em;
+    text-align: center;
+    padding-top: 1em;
+}
+
+.menu_table td, .side_table td, .dessert_table td, .drink_table td {
+    padding: 0.7em;
+    font-weight: bold;
+    color:black;
+}
+.menu_table1 {
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-top: 1.5em;
+    display:block;
+    width: 50%;
+    margin-left:auto;
+    margin-right:auto;
+}
+.menu_table1 td {
+    padding: 0.7em;
+    font-weight: bold;
+    color:black;
+}
+.menu_titles {
+    font-weight: bolder;
+    color:black;
+    display:inline;
+}
+.button {
+    background-color: rgba(0,0,0,0); 
+    border:none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.disabled {
+    background-color: rgba(0,0,0,0); 
+    border: 1px solid white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.form_override {
+    display: inline-block;
+    padding-top:0em;
+    position:relative;
+    left:35%;
+    border-spacing:0;
+    text-align: center;
+    border: none ;
+    font-weight:bold;
+       
+} 
+.no-border {
+    border-spacing: 0;
+    text-align: center;
+    border: none ;
+    padding-top:0;
+}
+.admintd {
+    width: 7em;
+}

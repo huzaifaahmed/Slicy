@@ -1,0 +1,94 @@
+ <%= erb :header %>
+<link href="/style/register.css" rel="stylesheet"/>
+
+<body>
+    <h1 class="title">Register with Pizza Shed</h1>
+    <br></br>
+    <br></br>
+    <% if @submitted && @all_ok %>
+    <p>Thanks <%=h @firstname %>, we got your data</p>
+    <% else %>
+    <% if @submitted && !@all_ok %>
+    <p style="color: red; position: relative; left: 33%; text-shadow: -1px -1px 0px rgb(0, 0, 0), 1px -1px 0px rgb(0, 0, 0), -1px 1px 0px rgb(0, 0, 0), 1px 1px 0px rgb(0, 0, 0); font-weight: bolder;">There were errors in your form submission, please correct them below.</p>
+    <% end %>
+    <form method="post" action="sign_up">
+        <% if @submitted && !@firstname_ok %>
+        
+        <p style="color:red">Please enter your first name</p>
+        <% end %>
+
+        <p style="color:white">Your first name:
+            <input type="text" name="firstname" value="<%=h @firstname if @submitted %>" required/>
+        </p>
+
+        <% if @submitted && !@lastname_ok %>
+        <p style="color:red">Please enter your last name</p>
+        <% end %>
+
+        <p style="color:white">Surname:
+            <input type="text" name="lastname" value="<%=h @lastname if @submitted %>"/>
+        </p>
+        
+        <% if @submitted && !@username_ok %>
+        <p style="color:red">Please enter your username</p>
+        <% end %>
+
+        <p style="color:white">Username:
+            <input type="text" name="username" value="<%=h @username if @submitted %>" required/>
+        </p>
+        
+        <% if @submitted && !@twittername_ok %>
+        
+        <p style="color:red">Please enter your twitter handle</p>
+        <% end %>
+
+        <p style="color:white">Your twitter handle:
+            <input type="text" name="twittername" value="<%=h @twittername if @submitted %>"/>
+        </p>
+        
+        <% if @submitted && !@password_ok %>
+        <p style="color:red">Please enter your password</p>
+        <% end %>
+
+        <p style="color:white">Password:
+            <input type="password" name="password" value="<%=h @password if @submitted %>" required/>
+        </p>
+        
+        <% if @submitted && !@email_ok %>
+        <p style="color:red">Email: </p>
+        <% end %>
+
+        <p style="color:white">Email:
+            <input type="email" name="email" value="<%=h @email if @submitted %>" required/>
+        </p>
+        
+        <% if @submitted && !@address_ok %>
+        <p style="color:red">Please enter your address</p>
+        <% end %>
+
+        <p style="color:white">Address:
+            <input type="text" name="address" value="<%=h @address if @submitted %>" required/>
+        </p>
+        
+        <% if @submitted && !@postcode_ok %>
+        <p style="color:red">Please enter your Sheffield postcode without spaces</p>
+        <% end %>
+
+        <p style="color:white">Your postcode:
+            <input type="text" name="postcode" value="<%=h @postcode if @submitted %>" required/>
+        </p>
+        
+        <% if @submitted && !@phone_ok %>
+        <p style="color:red">Please enter your phone</p>
+        <% end %>
+
+        <p style="color:white">Phone:
+            <input type="text" name="phone" value="<%=h @phone if @submitted %>"/>
+        </p>
+        
+        <input style="color:black" type="submit" value="submit">
+    </form>
+    <% end %>
+</body>
+
+<%= erb :footer %>

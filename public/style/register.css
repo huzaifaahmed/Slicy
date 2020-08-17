@@ -1,0 +1,28 @@
+form {
+    display: table;
+    padding-top:3em;
+    background-color:rgba(255,255,255,0.4);
+    margin:auto;
+    border-collapse:separate; 
+    border-spacing:10px;
+    text-align: right;
+    text-shadow:
+    -1px -1px 0 #5B5B5B,
+    1px -1px 0 #5B5B5B,
+    -1px 1px 0 #5B5B5B,
+    1px 1px 0 #5B5B5B;
+    font-weight:bold;
+       
+}
+
+form p {
+    color: white;
+    display: table-row;
+
+    
+}
+
+form input {
+    display: table-cell;
+    
+}*/

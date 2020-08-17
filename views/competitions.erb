@@ -1,0 +1,14 @@
+<%= erb :header %>
+
+<html>
+<link href="/style/competition.css" rel="stylesheet"/>    
+<h1 class="title">Competitions</h1>
+<form id="competition_form" method="post" action="competitions">
+    <p>Tweet ID of tweet to be retweeted:<br>
+        <input type="text" name="tweetID" placeholder="TweetID" value="" required>
+    </p>
+    <input type="submit" value="submit" >
+</form>
+</html>
+
+<%= erb :footer %>
